@@ -1,0 +1,17 @@
+@(foooomu: Form[LoginUser])(implicit request: MessagesRequestHeader)
+
+<html>
+	<head><title>aaaeeeiiioooaaa</title></head>
+	<body>
+  <h1>Welcome to Play!</h1>
+  @helper.form(action = routes.LoginController.loginSubmit()) {
+	@helper.CSRF.formField
+	<fieldset>
+	  @helper.inputText(foooomu("userId"))
+	  @helper.inputText(foooomu("userPass"))
+	</fieldset>
+	  <input type="submit" value="login">
+
+  }
+</body>
+</html>

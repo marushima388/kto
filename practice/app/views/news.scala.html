@@ -1,0 +1,26 @@
+@import models._
+@(items:Seq[NewsList])
+
+<html>
+	<head>
+		<title>ニュース</title>
+	</head>
+	<body>
+		<section>
+			<table>
+				<thead>
+					<tr>
+						<th>名前</th>
+					</tr>
+				</thead>
+				<tbody>
+					@items.map { newsList =>
+						<tr>
+							<td>@newsList.newsTitle</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</section>
+	</body>
+</html>

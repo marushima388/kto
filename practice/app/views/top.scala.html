@@ -1,0 +1,31 @@
+@import models._
+@(USER_ID: String)(items: Seq[NewsList])
+
+
+
+<html>
+	<head>
+		<title>ニュース</title>
+	</head>
+	<body>
+		hello @USER_ID
+		<section>
+			<table>
+				<thead>
+					<tr>
+						<th>タイトル</th>
+					</tr>
+				</thead>
+				<tbody>
+					@items.map { newsList =>
+						<tr>
+							<td>
+								<a href="/disp?link=@newsList.newsLink&title=@newsList.newsTitle">@newsList.newsTitle</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</section>
+	</body>
+</html>

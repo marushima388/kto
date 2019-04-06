@@ -7,22 +7,12 @@ import anorm._
 import anorm.SqlParser._
 import scala.language.postfixOps
 
-import javax.inject._
-import play.api._
-import play.api.mvc._
 import java.time.LocalDate
 import java.util.Date
-import java.util.Random
 import models._
 import play.api.data._
 import play.api.data.Forms._
 import play.api.data.validation.Constraints._
-
-import javax.inject.Inject
-
-import anorm.SqlParser._
-import anorm._
-import play.api.db.DBApi
 
 import scala.language.postfixOps
 

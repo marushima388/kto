@@ -6,6 +6,8 @@ import play.api.mvc._
 
 import models._
 
+import play.api.libs.json._
+
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
@@ -45,6 +47,14 @@ class HomeController @Inject()(cc: ControllerComponents, cr: Crawler, db: DBAcce
 
   def history(id:String) = Action { implicit request: Request[AnyContent] =>
 		val his = db.select_news_history(id)
-		Ok(his.toString)
-   	}
+		implicit val Rireki = new Writes[NewsHistory] {
+			def writes(newsHis: NewsHistory) = Json.obj(
+				"title" -> newsHis.hisTitle,
+				"link" -> newsHis.hisLink,
+				"date" -> newsHis.hisDateTime
+			)
+		}
+		val rireki = Json.toJson(his)
+		Ok(rireki)
+	}
 }

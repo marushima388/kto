@@ -32,7 +32,10 @@ class LoginController @Inject()(mcc: MessagesControllerComponents, db: DBAccess)
 			},
 			success => {
 				val user: LoginUser = loginForm.bindFromRequest.get
+				
+				// 取得でき無かった場合の処理を要追加
 				val userDB = db.select_login(user.userId).head
+				
 				if (user.userPass == userDB.userPass) {
 					
 					Redirect(routes.LoginController.top()).withSession(request.session + ("USER_ID" -> user.userId))
